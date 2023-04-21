@@ -5,10 +5,13 @@ import Image from 'next/image';
 import ilwel from '../../public/ilwel.png'
 import diamond from '../../public/diamond.svg'
 import burguer from '../../public/burguer.svg'
+import linkedin from '../../public/linkedin.svg'
+import github from '../../public/github.svg'
 import { useRouter } from 'next/router';
 import Typewriter from 'typewriter-effect/dist/core';
 import DialogContext from '@/contexts/DialogContext';
 import NavModal from './NavModal';
+import Link from 'next/link';
 // import fallen from '../../public/audio/fallen.mp3'
 
 const Layout = ({children}) => {
@@ -22,7 +25,9 @@ const Layout = ({children}) => {
   useEffect(() => {
 
     if(router.pathname === '/') setDialog('Olá, essa página foi feita para divulgar minha carreira como programador')
-    if(router.pathname === '/projects') setDialog('Alguns dos meus projetos :)')
+    if(router.pathname === '/projects') setDialog('Alguns dos projetos que estou e estive envolvido')
+    if(router.pathname === '/carrer') setDialog('Já tive o privilégio de trabalhar em algumas empresas no ramo da tecnologia')
+    if(router.pathname === '/study') setDialog('Aqui alguns lugares onde eu estudei')
 
   }, [router.pathname])
 
@@ -86,8 +91,17 @@ const Layout = ({children}) => {
         </div>
         <div className={styles['nav']}>
           <div className="outlined">
-
-            <h2>Ilwel Isaac</h2>
+            <div>
+              <Link href={'/'}>
+                <h2>Ilwel Isaac</h2>
+              </Link>
+              <Link target='_blank' href={'https://www.linkedin.com/in/ilwel/'}>
+                <Image className={styles['icon']} src={linkedin} alt='linkedin icon'/>
+              </Link>
+              <Link target='_blank' href={'https://github.com/Ilwel'}>
+                <Image className={styles['icon']} src={github} alt='github icon'/>
+              </Link>
+            </div>
             <p className='sub-text'>Desenvolvedor de Software</p>
             <ul>
               <li onClick={ () => onClick('projects')}>
@@ -98,7 +112,7 @@ const Layout = ({children}) => {
                   Projetos
                 </p>
               </li>
-              <li>
+              <li onClick={ () => onClick('carrer')}>
 
                   <Image src={diamond} alt='diamond icon'/>
 
@@ -106,7 +120,7 @@ const Layout = ({children}) => {
                   Carreira
                 </p>
               </li>
-              <li>
+              <li onClick={ () => onClick('study')}>
 
                   <Image src={diamond} alt='diamond icon'/>
 

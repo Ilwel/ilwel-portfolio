@@ -2,8 +2,11 @@ import React from 'react';
 import styles from './styles/NavModal.module.scss'
 import Image from 'next/image';
 import diamond from '../../public/diamond.svg'
+import linkedin from '../../public/linkedin.svg'
+import github from '../../public/github.svg'
 import close from '../../public/close.svg'
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 const NavModal = ({open, setOpen}) => {
 
@@ -18,6 +21,15 @@ const NavModal = ({open, setOpen}) => {
     open &&
     <div className={styles['m-nav']}>
       <Image onClick={() => setOpen(false)} className={styles['close']} src={close} alt='close icon'/>
+
+      <div>
+        <Link target='_blank' href={'https://www.linkedin.com/in/ilwel/'}>
+          <Image className={styles['icon']} src={linkedin} alt='linkedin icon'/>
+        </Link>
+        <Link target='_blank' href={'https://github.com/Ilwel'}>
+          <Image className={styles['icon']} src={github} alt='github icon'/>
+        </Link>
+      </div>
       <ul>
         <li onClick={ () => onClick('projects')} >
 
@@ -27,7 +39,7 @@ const NavModal = ({open, setOpen}) => {
             Projetos
           </p>
         </li>
-        <li>
+        <li onClick={ () => onClick('carrer')}>
 
             <Image src={diamond} alt='diamond icon'/>
 
@@ -35,7 +47,7 @@ const NavModal = ({open, setOpen}) => {
             Carreira
           </p>
         </li>
-        <li>
+        <li onClick={ () => onClick('study')}>
 
             <Image src={diamond} alt='diamond icon'/>
 
