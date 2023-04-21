@@ -1,0 +1,82 @@
+@import "../../styles/variables.scss";
+@import "../../styles/animations.scss";
+
+.l-general{
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+}
+
+.nav{
+  background-color: $surface;
+  height: 100%;
+  width: 30%;
+  padding: 1rem;
+  div{
+    padding-top: 6rem;
+    padding-left: 4rem;
+    height: 100%;
+  }
+  ul{
+    margin-top: 10%;
+    padding: 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    width: 80%;
+    li{
+      cursor: pointer;
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      transition: .5s;
+      img{
+        height: 2rem;
+        width: 2rem;
+        animation: idle .5s alternate infinite, grow-up .3s;
+      }
+    }
+    li:hover{
+      transform: scale(1.2) translateX(4rem);
+    }
+    li:not(:hover){
+      color: $sub-text-2;
+      opacity: 0.7;
+    }
+  }
+}
+
+.nav h2{
+  margin-bottom: 2rem;
+}
+
+.dialog-box{
+  position: absolute;
+  width: 80%;
+  height: 20rem;
+  background-color: $surface-2;
+  bottom: 6%;
+  left: 10%;
+  padding: 1rem;
+  div{
+    height: 100%;
+    padding: 4rem;
+    p{
+      word-wrap: pre-wrap;
+      line-height: 2rem;
+      width: 90%;
+      word-spacing: 0.1rem;
+    }
+  
+  }
+}
+
+.ilwel{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 40rem;
+  width: auto;
+  z-index: 2;
+  // animation: idle alternate infinite 1s;
+}

@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+@import './variables.scss';
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root{
+  background-color: $base;
+  color: $text;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 62.5%;
+  overflow: hidden;
+}
+
+ul{
+  list-style: none;
+}
+
+body{
+  font-size: 2rem;
+}
+
+h2{
+  font-size: 1.7rem;
+}
+
+p{
+  font-size: 1.3rem;
+}
+
+.outlined{
+  border: dashed $text 0.2rem;
+}
+
+.sub-text{
+  color: $sub-text;
+  opacity: 0.7;
+}
+
+.sub-text-2{
+  color: $sub-text-2;
+}
