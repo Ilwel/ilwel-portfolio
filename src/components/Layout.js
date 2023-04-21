@@ -25,9 +25,9 @@ const Layout = ({children}) => {
   useEffect(() => {
 
     if(router.pathname === '/') setDialog('Olá, essa página foi feita para divulgar minha carreira como programador')
-    if(router.pathname === '/projects') setDialog('Alguns dos projetos que estou e estive envolvido')
-    if(router.pathname === '/carrer') setDialog('Já tive o privilégio de trabalhar em algumas empresas no ramo da tecnologia')
-    if(router.pathname === '/study') setDialog('Aqui alguns lugares onde eu estudei')
+    if(router.pathname === '/projects') setDialog('Alguns dos projetos que estou e estive envolvido. Clique em um deles e saiba mais a respeito.')
+    if(router.pathname === '/carrer') setDialog('Já tive o privilégio de trabalhar em algumas empresas no ramo da tecnologia. Fique a vontade para clicar no título e saber mais a respeito')
+    if(router.pathname === '/study') setDialog('Aqui alguns lugares onde eu estudei. Se clicar no título eu te contarei um pouquinho mais sobre')
 
   }, [router.pathname])
 
