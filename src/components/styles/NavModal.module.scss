@@ -1,0 +1,58 @@
+@import '../../styles/variables.scss';
+@import '../../styles/animations.scss';
+
+.m-nav{
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background-color: #1e1e2e7b;
+  backdrop-filter: blur(10px);
+  z-index: 3;
+  ul{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5rem;
+    li{
+      cursor: pointer;
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      justify-content: center;
+      transition: .5s;
+      img{
+        height: 2rem;
+        width: 2rem;
+        animation: idle .5s alternate infinite, grow-up .3s;
+      }
+      p{
+        font-size: 2rem;
+      }
+    }
+    li:hover{
+      transform: scale(1.2) translateX(4rem);
+    }
+    li:not(:hover){
+      color: $sub-text;
+      opacity: 0.7;
+    }
+  }
+}
+
+.close{
+  height: 3rem;
+  width: 3rem;
+  position: absolute;
+  top: 5rem;
+  right: 5rem;
+  animation: spin 1s forwards;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: .5s;
+}
+.close:hover{
+  opacity: 1;
+}

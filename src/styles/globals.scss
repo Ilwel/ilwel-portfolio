@@ -44,3 +44,35 @@ p{
 .sub-text-2{
   color: $sub-text-2;
 }
+
+::-webkit-scrollbar {
+  height: 0.8rem;
+  width: 0.8rem;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: $text;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: $surface;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: $surface-2;
+} 
+
+@media(max-width:1300px) {
+  :root{
+    font-size: 50%;
+  }
+}
+
+@media(max-width:600px) {
+  :root{
+    font-size: 40%;
+  }
+}

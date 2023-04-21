@@ -60,7 +60,9 @@
   padding: 1rem;
   div{
     height: 100%;
-    padding: 4rem;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
     p{
       word-wrap: pre-wrap;
       line-height: 2rem;
@@ -71,12 +73,49 @@
   }
 }
 
+.nav-mobile{
+  display: none;
+}
+
 .ilwel{
   position: absolute;
   bottom: 0;
   right: 0;
-  height: 40rem;
+  height: 35rem;
   width: auto;
   z-index: 2;
-  // animation: idle alternate infinite 1s;
+}
+
+@media(max-width:1300px) {
+  .nav{
+    display: none;
+  }
+  .nav-mobile{
+    display: block;
+    position: absolute;
+    top: 4rem;
+    left: 4rem;
+    cursor: pointer;
+    :hover{
+      opacity: 1;
+    }
+    img{
+      height: 5rem;
+      width: 5rem;
+      opacity: 0.7;
+      transition: .5s;
+    }
+  }
+  .dialog-box{
+    height: 30rem;
+    bottom: 3%;
+    div{
+      overflow-y: auto;
+      direction: rtl;
+      padding-right: 20rem;
+      p{
+        direction: ltr;
+      }
+    }
+  }
 }

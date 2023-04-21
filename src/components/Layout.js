@@ -4,22 +4,30 @@ import Head from 'next/head';
 import Image from 'next/image';
 import ilwel from '../../public/ilwel.png'
 import diamond from '../../public/diamond.svg'
+import burguer from '../../public/burguer.svg'
 import { useRouter } from 'next/router';
 import Typewriter from 'typewriter-effect/dist/core';
+import DialogContext from '@/contexts/DialogContext';
+import NavModal from './NavModal';
 // import fallen from '../../public/audio/fallen.mp3'
 
 const Layout = ({children}) => {
 
   const router = useRouter()
 
-  const audio = useRef(null)
-
   const [dialog, setDialog] = useState('')
+
+  const [open, setOpen] = useState(false)
 
   useEffect(() => {
 
     if(router.pathname === '/') setDialog('Olá, essa página foi feita para divulgar minha carreira como programador')
     if(router.pathname === '/projects') setDialog('Alguns dos meus projetos :)')
+
+  }, [router.pathname])
+
+  useEffect(() => {
+
 
     var tp = document.getElementById('typewriter');
 
@@ -28,7 +36,7 @@ const Layout = ({children}) => {
       deleteSpeed: 2,
     });
 
-    if(router.pathname === '/' && dialog){
+    if(router.pathname === '/' && dialog && dialog === 'Olá, essa página foi feita para divulgar minha carreira como programador'){
       const phrase2 = 'Eu <strong>sempre</strong> quis um lugar na internet para chamar de meu'
       const phrase3 = 'Eu tenho um <strong>imenso</strong> amor por tecnologia e tudo o que ela me permite criar'
       const phrase4 = 'Quero estar <strong>sempre</strong> criando coisas novas e ir preenchendo esse cantinho com essas experiências <3.'
@@ -57,13 +65,8 @@ const Layout = ({children}) => {
   
   }, [dialog, router.pathname])
 
-  const [isHover, setIsHover] = useState(0)
-
   const onClick = (to) => {
-    if(to === 'projects'){
-      router.push('/projects')
-    }
-  
+    router.push('/' + to)
   }
 
   return (
@@ -87,7 +90,7 @@ const Layout = ({children}) => {
             <h2>Ilwel Isaac</h2>
             <p className='sub-text'>Desenvolvedor de Software</p>
             <ul>
-              <li onClick={ () => onClick('projects')} onMouseEnter={() => setIsHover(1)} onMouseLeave={() => setIsHover(0)}>
+              <li onClick={ () => onClick('projects')}>
 
                   <Image src={diamond} alt='diamond icon'/>
 
@@ -95,7 +98,7 @@ const Layout = ({children}) => {
                   Projetos
                 </p>
               </li>
-              <li onMouseEnter={() => setIsHover(2)} onMouseLeave={() => setIsHover(0)}>
+              <li>
 
                   <Image src={diamond} alt='diamond icon'/>
 
@@ -103,7 +106,7 @@ const Layout = ({children}) => {
                   Carreira
                 </p>
               </li>
-              <li onMouseEnter={() => setIsHover(3)} onMouseLeave={() => setIsHover(0)}>
+              <li>
 
                   <Image src={diamond} alt='diamond icon'/>
 
@@ -114,7 +117,14 @@ const Layout = ({children}) => {
             </ul>
           </div>
         </div>
-        {children}
+
+        <div onClick={() => setOpen(true)} className={styles['nav-mobile']}>
+          <Image src={burguer} alt='burguer menu'/>
+        </div>
+        <DialogContext.Provider value={{dialog, setDialog}}>
+         {children}
+        </DialogContext.Provider>
+        <NavModal open={open} setOpen={setOpen}/>
       </main>
     </>
   );
