@@ -8,8 +8,8 @@
 }
 
 .icon{
-  height: 3rem;
-  width: 3rem;
+  height: 4rem;
+  width: 4rem;
 }
 
 .nav{
@@ -33,6 +33,7 @@
       }
       img:hover{
         opacity: 1;
+        transform: translateY(-8px);
       }
     }
   }
